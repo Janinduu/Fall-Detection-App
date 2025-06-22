@@ -135,7 +135,7 @@ implementation("com.google.android.gms:play-services-location:21.0.1")
 3. Use "Test SMS" button to verify configuration
 4. Save settings before exiting
 
-**Example format**: `071234567891`
+**Example format**: `'0712345678`
 
 </details>
 
