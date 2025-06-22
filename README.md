@@ -4,8 +4,6 @@
 
 **An intelligent Android application that detects falls using device sensors and sends automatic SMS alerts to emergency contacts.**
 
-[📥 Download APK](#installation) -  [📖 Documentation](#documentation) -  [🐛 Report Bug](../../issues) -  [💡 Request Feature](../../issues)
-
 </div>
 
 ---
@@ -103,7 +101,7 @@ implementation("com.google.android.gms:play-services-location:21.0.1")
 <td width="33%">
 
 #### 🟢 Fall Detection Status
-- **Status Indicator**: Shows "ACTIVE" (green) or "INACTIVE" (red)
+- **Status Indicator**: Shows "ACTIVE" (dark orrange) or "INACTIVE" (orange with a text - 'Fall Detection Inactive')
 - **Toggle Switch**: Enable/disable monitoring
 - **Real-time Display**: Live sensor readings
 
@@ -133,11 +131,11 @@ implementation("com.google.android.gms:play-services-location:21.0.1")
 <summary>📞 Emergency Contact Setup</summary>
 
 1. Navigate to Settings screen
-2. Enter emergency contact phone number (include country code)
+2. Enter emergency contact phone number 
 3. Use "Test SMS" button to verify configuration
 4. Save settings before exiting
 
-**Example format**: `+1234567890`
+**Example format**: `071234567891`
 
 </details>
 
@@ -156,7 +154,7 @@ implementation("com.google.android.gms:play-services-location:21.0.1")
 
 ### 🔍 Three-Phase Detection Process
 
-The fall detection algorithm uses a sophisticated three-phase approach:
+The fall detection algorithm uses a three-phase approach:
 
 1. **🔍 Free Fall Detection** - Monitors for low acceleration periods (<2.0 m/s²)
 2. **💥 Impact Detection** - Identifies high acceleration events (>30.0 m/s²)
@@ -173,12 +171,12 @@ The fall detection algorithm uses a sophisticated three-phase approach:
 | `COOLDOWN_PERIOD` | 30s | Prevents duplicate alerts |
 
 ### 🧮 Mathematical Implementation
-// Magnitude calculation
-magnitude = √(x² + y² + z²)
+- [x] Magnitude calculation
+`magnitude = √(x² + y² + z²)`
 
-// Buffer system maintains 10 recent readings
-private static final int BUFFER_SIZE = 10;
-private float[][] accelBuffer = new float[BUFFER_SIZE];
+- [x] Buffer system maintains 10 recent readings
+- [x] private static final int BUFFER_SIZE = 10;
+- [x] private float[][] accelBuffer = new float[BUFFER_SIZE];
 
 
 ---
@@ -201,7 +199,7 @@ private float[][] accelBuffer = new float[BUFFER_SIZE];
 <summary>📵 SMS Alerts Not Sending</summary>
 
 **Troubleshooting Steps:**
-- 📞 Verify phone number format (include country code)
+- 📞 Verify phone number format 
 - 📶 Check mobile network connection
 - 🧪 Use "Test SMS" button in settings
 - 🔐 Confirm SMS permission is granted
@@ -265,7 +263,7 @@ private float[][] accelBuffer = new float[BUFFER_SIZE];
 </table>
 
 ### 🏗️ Project Structure
-
+```
 app/
 ├── 📁 manifests/
 │ └── AndroidManifest.xml
@@ -283,12 +281,12 @@ app/
 │ ├── 📁 menu/
 │ └── 📁 values/
 └── build.gradle.kts
-
+```
 
 ### 🔬 Test Scenarios
 
 - [x] **Sensor Availability Check** - Verify accelerometer/gyroscope presence
 - [x] **Fall Simulation** - Test algorithm with controlled movements
 - [x] **SMS Delivery** - Confirm emergency alerts reach contacts
-- [x] **Background Operation** - Validate continuous monitoring
+
 
